@@ -6,6 +6,6 @@ public class Class
     public string Semester { get; set; }
     public int Year { get; set; }
     public string Room { get; set; }
-    public List<Course> courses { get; set; }
+    public List<Course> Courses { get; set; }
 
 }

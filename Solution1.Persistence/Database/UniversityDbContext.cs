@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Solution1.Domain.Entities;
 
-namespace Solution1.Persistent.Database;
+namespace Solution1.Persistence.Database;
 
 public class UniversityDbContext: DbContext
 {
@@ -18,14 +18,18 @@ public class UniversityDbContext: DbContext
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(modelBuilder);
-        modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
-        
+        modelBuilder.Entity<Student>()
+            .HasMany(s => s.Courses).WithMany(c =>c.Students);
+        modelBuilder.Entity<Course>().HasMany(s => s.Students).WithMany(s => s.Courses);
+
+        modelBuilder.Entity<Teacher>().HasMany(t=>t.Courses).WithMany(c=>c.Teachers);
+        modelBuilder.Entity<Class>().HasMany(c=>c.Courses).WithOne(c => c.Class).HasForeignKey(c=>c.classId);
         modelBuilder.HasDefaultSchema("public");
+        
 
     }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=university;Username=ALIJAD;Password=alijad");
+        => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=unidb;Username=ALIJAD;Password=alijad");
 
 //dotnet tool install --global dotnet-ef
 //    dotnet tool update --global dotnet-ef

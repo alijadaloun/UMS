@@ -6,6 +6,6 @@ public class Teacher
     public string TeacherName { get; set; }
     public string Password { get; set; }
     public string Email { get; set; }
-    public List<Course> courses { get; set; }
+    public List<Course> Courses { get; set; }
 
 }
