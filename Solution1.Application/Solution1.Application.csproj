@@ -12,6 +12,9 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Solution1.Persistence\Solution1.Persistence.csproj" />
+
+        <ProjectReference Include="..\Solution1.Domain\Solution1.Domain.csproj" />
+        
     </ItemGroup>
 
 </Project>
