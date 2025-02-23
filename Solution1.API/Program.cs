@@ -1,4 +1,5 @@
 using System.Reflection;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Solution1.Persistence.Database;
@@ -18,11 +19,11 @@ builder.Services.AddDbContext<UniversityDbContext>(options =>
 
 builder.Services.AddControllers();
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(AddStudentCommand).Assembly));
-
 builder.Services.AddScoped<StudentRepository>();
 builder.Services.AddScoped<TeacherRepository>();
 builder.Services.AddScoped<ClassRepository>();
 builder.Services.AddScoped<CourseRepository>();
+builder.Services.AddScoped<UserRepository>();
 builder.Services.AddSingleton<IConnectionMultiplexer>(
     ConnectionMultiplexer.Connect("localhost:6379"));
 builder.Services.AddScoped<RedisCacheService>();

@@ -44,6 +44,15 @@ public class TeacherRepository
         return teacher;
         
     }
+
+    public async Task Grade(int StudentId,int grade)//out of 20
+    {
+        var s = await _universityDbContext.Students.FindAsync(StudentId);
+        if(s==null) throw new ArgumentNullException("Student not found");
+        s.Grade = (s.Grade + 20)/2;
+        s.CanApplyToFrance = s.Grade > 15?true:false;
+        await _universityDbContext.SaveChangesAsync();
+    }
     public async Task<Teacher> Delete(int id)
     {
         var teacher = await _universityDbContext.Teachers.FindAsync(id);

@@ -11,5 +11,7 @@ public class Student
     public string StudentName { get; set; }
     public string Email { get; set; }
     public string Password { get; set; }
+    public  double Grade { get; set; } = 0;
+    public Boolean CanApplyToFrance { get; set; } = false;
     public List<Course> Courses { get; set; } =  new List<Course>();
 }

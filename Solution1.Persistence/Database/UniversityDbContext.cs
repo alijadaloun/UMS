@@ -9,6 +9,7 @@ public class UniversityDbContext: DbContext
     public DbSet<Course> Courses { get; set; }
     public DbSet<Class> Classes { get; set; }
     public DbSet<Teacher> Teachers { get; set; }
+    public DbSet<User> Users { get; set; }
     
     public UniversityDbContext(DbContextOptions<UniversityDbContext> options) : base(options)
     {
@@ -28,6 +29,8 @@ public class UniversityDbContext: DbContext
         
 
     }
+   
+    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=unidb;Username=ALIJAD;Password=alijad");
 

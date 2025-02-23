@@ -110,9 +110,15 @@ namespace Solution1.Persistence.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("CanApplyToFrance")
+                        .HasColumnType("boolean");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<double>("Grade")
+                        .HasColumnType("double precision");
 
                     b.Property<string>("Password")
                         .IsRequired()
@@ -150,6 +156,34 @@ namespace Solution1.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Teachers", "public");
+                });
+
+            modelBuilder.Entity("Solution1.Domain.Entities.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Role")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users", "public");
                 });
 
             modelBuilder.Entity("CourseStudent", b =>
