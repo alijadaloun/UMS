@@ -8,6 +8,9 @@ using Solution1.Application.Handlers.Commands.StudentCommands;
 using Solution1.Persistence.Cache;
 using Solution1.Persistence.Repositories;
 using StackExchange.Redis;
+using Microsoft.OData.ModelBuilder;
+using Microsoft.AspNetCore.OData;
+using Solution1.Domain.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<UniversityDbContext>(options =>
@@ -49,7 +52,19 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader();
     });
 });
-
+var modelBuilder = new ODataConventionModelBuilder();
+modelBuilder.EntityType<Class>();
+modelBuilder.EntityType<Course>();
+modelBuilder.EntityType<Student>();
+modelBuilder.EntityType<Teacher>();
+modelBuilder.EntitySet<Class>("Classes");
+modelBuilder.EntitySet<Course >("Courses");
+modelBuilder.EntitySet<Student >("Students");
+modelBuilder.EntitySet<Teacher >("Teachers");
+builder.Services.AddControllers().AddOData(
+    options => options.Select().Filter().OrderBy().Expand().Count().SetMaxTop(null)
+        .AddRouteComponents("odata", modelBuilder.GetEdmModel())
+);
 var app = builder.Build();
 
 app.UseHttpsRedirection();
