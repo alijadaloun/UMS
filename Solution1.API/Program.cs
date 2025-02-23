@@ -5,8 +5,9 @@ using Solution1.Persistence.Database;
 using Microsoft.EntityFrameworkCore;
 
 using Solution1.Application.Handlers.Commands.StudentCommands;
-
+using Solution1.Persistence.Cache;
 using Solution1.Persistence.Repositories;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<UniversityDbContext>(options =>
@@ -19,6 +20,9 @@ builder.Services.AddScoped<StudentRepository>();
 builder.Services.AddScoped<TeacherRepository>();
 builder.Services.AddScoped<ClassRepository>();
 builder.Services.AddScoped<CourseRepository>();
+builder.Services.AddSingleton<IConnectionMultiplexer>(
+    ConnectionMultiplexer.Connect("localhost:6379"));
+builder.Services.AddScoped<RedisCacheService>();
 
 builder.Services.AddApiVersioning(options =>
 {

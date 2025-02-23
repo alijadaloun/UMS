@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Solution1.Domain.Entities;
 
@@ -11,6 +12,7 @@ public class Class
     public string Semester { get; set; }
     public int Year { get; set; }
     public string Room { get; set; }
+    [JsonIgnore]
     public List<Course> Courses { get; set; } =  new List<Course>();
 
 }

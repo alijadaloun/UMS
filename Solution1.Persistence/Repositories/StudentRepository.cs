@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Solution1.Domain.Entities;
+using Solution1.Persistence.Cache;
 using Solution1.Persistence.Database;
 
 namespace Solution1.Persistence.Repositories;
@@ -7,21 +8,32 @@ namespace Solution1.Persistence.Repositories;
 public class StudentRepository
 {
     private readonly UniversityDbContext _universityDbContext;
+    private readonly RedisCacheService _redisCacheService;
 
-    public StudentRepository(UniversityDbContext universityDbContext)
+    public StudentRepository(UniversityDbContext universityDbContext, RedisCacheService redisCacheService)
     {
         _universityDbContext = universityDbContext;
+        _redisCacheService = redisCacheService;
     }
     public async Task<Student> GetById(int id)
     {
-        if (await _universityDbContext.Students.FindAsync(id) == null) throw new ArgumentNullException("Student not found");
-        
-        return  await _universityDbContext.Students.FindAsync(id);
+        string key = $"student:{id}";
+        var cached = await _redisCacheService.GetAsync<Student>(key);
+        if (cached != null) return cached;
+        var student = await _universityDbContext.Students.FindAsync(id);
+        if (student==null) throw new ArgumentNullException("Student not found");
+        await _redisCacheService.SetAsync(key, student, new TimeSpan(0, 30, 0));
+        return  student;
 
     }
 
    public  async Task<List<Student>>GetAll()
     {
+        string key = "students:all";
+        var cached = await _redisCacheService.GetAsync<List<Student>>(key);
+        if (cached != null) return cached;
+        var students = await _universityDbContext.Students.ToListAsync();
+        await _redisCacheService.SetAsync(key, students, new TimeSpan(0, 30, 0));
         return  await _universityDbContext.Students.ToListAsync();
     }
 
