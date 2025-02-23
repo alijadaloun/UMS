@@ -27,7 +27,6 @@
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\Solution1.Application\Solution1.Application.csproj" />
-        <ProjectReference Include="..\Solution1.Persistence\Solution1.Persistence.csproj"/>
     </ItemGroup>
     <ItemGroup>
       <Folder Include="wwwroot\uploads\" />

@@ -1,6 +1,10 @@
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.OData.Routing.Controllers;
+using Solution1.Application.Handlers.Queries.ClassQueries;
+using Solution1.Application.Handlers.Queries.StudentQueries;
+using Solution1.Application.Handlers.Queries.TeacherQueries;
 using Solution1.Domain.Entities;
 using Solution1.Persistence.Repositories;
 
@@ -8,34 +12,26 @@ namespace Solution1.Presentation.Controllers;
 [Route("odata")]
 public class FilterODataController: ODataController
 {
-    private readonly ClassRepository _classRepository;
-    private readonly CourseRepository _courseRepository;
-    private readonly StudentRepository _studentRepository;
-    private readonly TeacherRepository _teacherRepository;
+    private readonly IMediator _mediator;
 
-    public FilterODataController(ClassRepository classRepository, 
-       TeacherRepository teacherRepository, 
-        CourseRepository courseRepository, 
-        StudentRepository studentRepository)
+    public FilterODataController(
+       IMediator mediator)
     {
-        _classRepository = classRepository;
-        _courseRepository = courseRepository;
-        _studentRepository = studentRepository;
-        _teacherRepository = teacherRepository;
-        
-    }
+        _mediator = mediator;
+        }
     [EnableQuery]
     [HttpGet("classes")]
     public async Task<ActionResult<IEnumerable<Class>>> GetClasses()
     {
-        return Ok(await _classRepository.GetAll());
+        var result = await _mediator.Send(new GetClassesQuery());
+        return Ok(result);
     }
 
     [EnableQuery]
     [HttpGet("class/{key}")]
     public async Task<ActionResult<Class>> GetClass([FromRoute] int key)
     {
-        var c = await _classRepository.Get(key);
+        var c = await _mediator.Send(new GetClassByIdQuery(key));
         if (c == null) return NotFound();
         return Ok(c);
 
@@ -44,14 +40,15 @@ public class FilterODataController: ODataController
     [HttpGet("courses")]
     public async Task<ActionResult<IEnumerable<Course>>> GetCourses()
     {
-        return Ok(await _courseRepository.GetAll());
+        var result = await _mediator.Send(new GetClassesQuery());
+        return Ok(result);
     }
 
     [EnableQuery]
     [HttpGet("course/{key}")]
-    public async Task<ActionResult<Class>> GetCourse([FromRoute] int key)
+    public async Task<ActionResult<Course>> GetCourse([FromRoute] int key)
     {
-        var c = await _courseRepository.Get(key);
+        var c = await _mediator.Send(new GetClassByIdQuery(key));
         if (c == null) return NotFound();
         return Ok(c);
 
@@ -60,14 +57,15 @@ public class FilterODataController: ODataController
     [HttpGet("students")]
     public async Task<ActionResult<IEnumerable<Student>>> GetStudents()
     {
-        return Ok(await _studentRepository.GetAll());
+        var result = await _mediator.Send(new GetStudentsQuery());
+        return Ok(result);
     }
 
     [EnableQuery]
     [HttpGet("student/{key}")]
-    public async Task<ActionResult<Class>> GetStudent([FromRoute] int key)
+    public async Task<ActionResult<Student>> GetStudent([FromRoute] int key)
     {
-        var c = await _studentRepository.GetById(key);
+        var c = await _mediator.Send(new GetStudentByIdQuery(key));
         if (c == null) return NotFound();
         return Ok(c);
 
@@ -76,16 +74,17 @@ public class FilterODataController: ODataController
     [HttpGet("teachers")]
     public async Task<ActionResult<IEnumerable<Teacher>>> GetTeachers()
     {
-        return Ok(await _teacherRepository.GetTeachers());
+        var result = await _mediator.Send(new GetTeachersQuery());
+        return Ok(result);
     }
 
     [EnableQuery]
     [HttpGet("teacher/{key}")]
     public async Task<ActionResult<Teacher>> GetTeacher([FromRoute] int key)
     {
-        var c = await _teacherRepository.GetById(key);
-        if (c == null) return NotFound();
-        return Ok(c);
+        var t = await _mediator.Send(new GetTeacherByIdQuery(key));
+        if (t == null) return NotFound();
+        return Ok(t);
 
     }
 }

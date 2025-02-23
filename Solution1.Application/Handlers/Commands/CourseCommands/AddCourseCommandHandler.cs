@@ -21,7 +21,7 @@ public class AddCourseCommandHandler
         {
  
             CourseName = request.name,
-            Department = request.department,
+            Department = request.department
 
 
         });

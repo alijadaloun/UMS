@@ -8,19 +8,15 @@
 
     <ItemGroup>
       <PackageReference Include="MediatR" Version="12.4.1" />
+      <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="6.0.0-preview.4.21253.5" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Solution1.Persistence\Solution1.Persistence.csproj" />
-
+        <ProjectReference Include="..\Solution1.Persistence\Solution1.Persistence.csproj" />
         <ProjectReference Include="..\Solution1.Domain\Solution1.Domain.csproj" />
+        <ProjectReference Include="..\Solution1.Infrastructure\Solution1.Infrastructure.csproj" />
         
     </ItemGroup>
-
-    <ItemGroup>
-      <Reference Include="Microsoft.AspNetCore.Http.Features">
-        <HintPath>..\..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.AspNetCore.App\9.0.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
-      </Reference>
-    </ItemGroup>
+    
 
 </Project>
