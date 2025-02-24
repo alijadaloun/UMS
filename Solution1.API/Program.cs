@@ -6,12 +6,12 @@ using Solution1.Persistence.Database;
 using Microsoft.EntityFrameworkCore;
 
 using Solution1.Application.Handlers.Commands.StudentCommands;
-using Solution1.Persistence.Cache;
 using Solution1.Persistence.Repositories;
 using StackExchange.Redis;
 using Microsoft.OData.ModelBuilder;
 using Microsoft.AspNetCore.OData;
 using Solution1.Domain.Entities;
+using Solution1.Infrastructure.Cache;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<UniversityDbContext>(options =>
@@ -27,6 +27,8 @@ builder.Services.AddScoped<UserRepository>();
 builder.Services.AddSingleton<IConnectionMultiplexer>(
     ConnectionMultiplexer.Connect("localhost:6379"));
 builder.Services.AddScoped<RedisCacheService>();
+builder.Services.AddMemoryCache();
+builder.Services.AddScoped<InMemoryCacheService>();
 
 builder.Services.AddApiVersioning(options =>
 {

@@ -1,6 +1,8 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Solution1.Application.Handlers.Commands.UserCommands;
+using Solution1.Application.Handlers.Queries.InMemoryCacheTestQueries;
+using Solution1.Domain.Entities;
 
 namespace Solution1.Presentation.Controllers;
 [ApiController]
@@ -15,6 +17,20 @@ public class UserController: ControllerBase
     {
         _mediator = mediator;
         _webHostEnvironment = webHostEnvironment;
+    }
+
+    [HttpGet("user/{id}")]
+    public async Task<User> GetUser(int id)
+    {
+        var user = await _mediator.Send(new GetUserByIdQuery(id));
+        return user;
+    }
+
+    [HttpGet("getall")]
+    public async Task<List<User>> GetAllUsers()
+    {
+        var users = await _mediator.Send(new GetUsersQuery());
+        return users;
     }
 
     [HttpGet("signin")]

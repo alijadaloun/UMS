@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Solution1.Domain.Entities;
 using Solution1.Persistence.Database;
 
@@ -13,6 +14,18 @@ public class UserRepository
         _universityDbContext = universityDbContext;
     }
 
+    public async Task<List<User>> GetUsers()
+    {
+        var users = await _universityDbContext.Users.ToListAsync();
+        return users;
+    }
+
+    public async Task<User> GetUserById(int id)
+    {
+        var user = await _universityDbContext.Users.FindAsync(id);
+        if (user == null)throw new ArgumentNullException("User not found");
+        return user;
+    }
     public async Task addUser(User user)
     {
         await _universityDbContext.Users.AddAsync(user);

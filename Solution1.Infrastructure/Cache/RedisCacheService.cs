@@ -1,8 +1,8 @@
-using Microsoft.Extensions.Caching.Distributed;
-
-namespace Solution1.Persistence.Cache;
-using StackExchange.Redis;
 using Newtonsoft.Json;
+using StackExchange.Redis;
+
+
+namespace Solution1.Infrastructure.Cache;
 
 public class RedisCacheService
 {
