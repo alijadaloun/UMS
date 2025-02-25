@@ -4,7 +4,7 @@ using Solution1.Presentation.Resources;
 
 namespace Solution1.Presentation.Controllers;
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/universal")]
 
 public class UniversalController: ControllerBase
 {
@@ -16,10 +16,10 @@ public class UniversalController: ControllerBase
         
     }
 
-    [HttpPost("Greeting")]
-    public IActionResult Greeting()
+    [HttpGet("greeting")]
+    public IActionResult Greeting(string message)
     {
-        return Ok(_localizer["Greeting"]);
+        return Ok(_localizer["WelcomeMessage"]);
     }
     
     
