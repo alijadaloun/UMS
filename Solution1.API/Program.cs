@@ -13,10 +13,12 @@ using Solution1.Persistence.Repositories;
 using StackExchange.Redis;
 using Microsoft.OData.ModelBuilder;
 using Microsoft.AspNetCore.OData;
+using Microsoft.Extensions.Localization;
 using Solution1.Domain.Entities;
 using Solution1.Infrastructure.Cache;
 using Serilog;
 using Solution1.Infrastructure;
+using Solution1.Presentation.Resources;
 
 Log.Logger = new LoggerConfiguration().WriteTo.File($"logs/log{RollingInterval.Day}.txt").CreateLogger();
 
@@ -38,6 +40,7 @@ builder.Services.AddScoped<HangfireService>();
 builder.Services.AddScoped<RedisCacheService>();
 builder.Services.AddMemoryCache();
 builder.Services.AddScoped<InMemoryCacheService>();
+builder.Services.AddScoped<Universal>();
 
 
 builder.Services.AddApiVersioning(options =>
@@ -101,6 +104,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseRequestLocalization();
+app.MapGet("/", (IStringLocalizer<Universal> localizer) =>
+    localizer["HelloWorld"]); 
 
 app.UseCors("AllowAll");
 

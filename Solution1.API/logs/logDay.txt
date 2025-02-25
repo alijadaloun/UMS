@@ -936,3 +936,164 @@ System.InvalidOperationException: Current JobStorage instance has not been initi
 2025-02-25 23:42:31.022 +02:00 [WRN] The path template 'odata/course/{key}' on the action 'GetCourse' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'course'.
 2025-02-25 23:42:31.023 +02:00 [WRN] The path template 'odata/student/{key}' on the action 'GetStudent' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'student'.
 2025-02-25 23:42:31.023 +02:00 [WRN] The path template 'odata/teacher/{key}' on the action 'GetTeacher' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'teacher'.
+2025-02-25 23:46:26.622 +02:00 [WRN] The path template 'odata/class/{key}' on the action 'GetClass' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'class'.
+2025-02-25 23:46:26.633 +02:00 [WRN] The path template 'odata/course/{key}' on the action 'GetCourse' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'course'.
+2025-02-25 23:46:26.634 +02:00 [WRN] The path template 'odata/student/{key}' on the action 'GetStudent' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'student'.
+2025-02-25 23:46:26.634 +02:00 [WRN] The path template 'odata/teacher/{key}' on the action 'GetTeacher' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'teacher'.
+2025-02-25 23:46:26.767 +02:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert
+2025-02-25 23:46:26.814 +02:00 [INF] Now listening on: https://localhost:7284
+2025-02-25 23:46:26.815 +02:00 [INF] Now listening on: http://localhost:5225
+2025-02-25 23:46:26.815 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-25 23:46:26.816 +02:00 [INF] Hosting environment: Development
+2025-02-25 23:46:26.816 +02:00 [INF] Content root path: C:\Users\alijadaloun\Desktop\BE Track\Lab5\project\Solution1\Solution1.API
+2025-02-25 23:46:32.570 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - null null
+2025-02-25 23:46:32.658 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - 200 null text/html;charset=utf-8 91.0408ms
+2025-02-25 23:46:33.109 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.css - null null
+2025-02-25 23:46:33.109 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/swagger-ui-bundle.js - null null
+2025-02-25 23:46:33.109 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/swagger-ui.css - null null
+2025-02-25 23:46:33.109 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/swagger-ui-standalone-preset.js - null null
+2025-02-25 23:46:33.110 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.js - null null
+2025-02-25 23:46:33.113 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.js - 200 null application/javascript;charset=utf-8 3.0934ms
+2025-02-25 23:46:33.126 +02:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2025-02-25 23:46:33.126 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.css - 200 202 text/css 17.9687ms
+2025-02-25 23:46:33.136 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-02-25 23:46:33.137 +02:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-02-25 23:46:33.138 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/swagger-ui-standalone-preset.js - 200 230007 text/javascript 28.59ms
+2025-02-25 23:46:33.138 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/swagger-ui.css - 200 152035 text/css 29.4036ms
+2025-02-25 23:46:33.178 +02:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-02-25 23:46:33.178 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/swagger-ui-bundle.js - 200 1426050 text/javascript 69.3792ms
+2025-02-25 23:46:34.096 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - null null
+2025-02-25 23:46:34.256 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/favicon-32x32.png - null null
+2025-02-25 23:46:34.256 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-02-25 23:46:34.256 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/favicon-32x32.png - 200 628 image/png 0.5108ms
+2025-02-25 23:46:34.461 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 365.5169ms
+2025-02-25 23:46:41.275 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7284/api/Universal/Greeting - null 0
+2025-02-25 23:46:41.295 +02:00 [INF] CORS policy execution successful.
+2025-02-25 23:46:41.302 +02:00 [INF] Executing endpoint 'Solution1.Presentation.Controllers.UniversalController.Greeting (Solution1.API)'
+2025-02-25 23:46:41.329 +02:00 [INF] Route matched with {action = "Greeting", controller = "Universal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Greeting() on controller Solution1.Presentation.Controllers.UniversalController (Solution1.API).
+2025-02-25 23:46:41.337 +02:00 [INF] Executed action Solution1.Presentation.Controllers.UniversalController.Greeting (Solution1.API) in 3.4059ms
+2025-02-25 23:46:41.338 +02:00 [INF] Executed endpoint 'Solution1.Presentation.Controllers.UniversalController.Greeting (Solution1.API)'
+2025-02-25 23:46:41.340 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Localization.IStringLocalizer' while attempting to activate 'Solution1.Presentation.Controllers.UniversalController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method6(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-02-25 23:46:41.366 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7284/api/Universal/Greeting - 500 null text/plain; charset=utf-8 91.3113ms
+2025-02-25 23:49:40.473 +02:00 [INF] Application is shutting down...
+2025-02-25 23:49:50.330 +02:00 [WRN] The path template 'odata/class/{key}' on the action 'GetClass' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'class'.
+2025-02-25 23:49:50.342 +02:00 [WRN] The path template 'odata/course/{key}' on the action 'GetCourse' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'course'.
+2025-02-25 23:49:50.342 +02:00 [WRN] The path template 'odata/student/{key}' on the action 'GetStudent' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'student'.
+2025-02-25 23:49:50.343 +02:00 [WRN] The path template 'odata/teacher/{key}' on the action 'GetTeacher' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'teacher'.
+2025-02-25 23:49:50.491 +02:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert
+2025-02-25 23:49:50.535 +02:00 [INF] Now listening on: https://localhost:7284
+2025-02-25 23:49:50.535 +02:00 [INF] Now listening on: http://localhost:5225
+2025-02-25 23:49:50.535 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-25 23:49:50.536 +02:00 [INF] Hosting environment: Development
+2025-02-25 23:49:50.536 +02:00 [INF] Content root path: C:\Users\alijadaloun\Desktop\BE Track\Lab5\project\Solution1\Solution1.API
+2025-02-25 23:49:55.486 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.html - null null
+2025-02-25 23:49:55.566 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.html - 200 null text/html;charset=utf-8 80.5394ms
+2025-02-25 23:49:55.672 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/swagger-ui-standalone-preset.js - null null
+2025-02-25 23:49:55.672 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.css - null null
+2025-02-25 23:49:55.672 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/swagger-ui.css - null null
+2025-02-25 23:49:55.672 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/index.js - null null
+2025-02-25 23:49:55.672 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/swagger-ui-bundle.js - null null
+2025-02-25 23:49:55.679 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.js - 200 null application/javascript;charset=utf-8 6.7582ms
+2025-02-25 23:49:55.719 +02:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2025-02-25 23:49:55.719 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/index.css - 200 202 text/css 47.4328ms
+2025-02-25 23:49:55.826 +02:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-02-25 23:49:55.826 +02:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-02-25 23:49:55.829 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/swagger-ui-standalone-preset.js - 200 230007 text/javascript 157.4648ms
+2025-02-25 23:49:55.829 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/swagger-ui.css - 200 152035 text/css 157.4756ms
+2025-02-25 23:49:55.852 +02:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-02-25 23:49:55.852 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/swagger-ui-bundle.js - 200 1426050 text/javascript 180.1786ms
+2025-02-25 23:49:56.033 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - null null
+2025-02-25 23:49:56.044 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7284/swagger/favicon-32x32.png - null null
+2025-02-25 23:49:56.045 +02:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-02-25 23:49:56.046 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/favicon-32x32.png - 200 628 image/png 1.3172ms
+2025-02-25 23:49:56.189 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7284/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 155.2796ms
+2025-02-25 23:50:00.589 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7284/api/Universal/Greeting - null 0
+2025-02-25 23:50:00.616 +02:00 [INF] CORS policy execution successful.
+2025-02-25 23:50:00.621 +02:00 [INF] Executing endpoint 'Solution1.Presentation.Controllers.UniversalController.Greeting (Solution1.API)'
+2025-02-25 23:50:00.634 +02:00 [INF] Route matched with {action = "Greeting", controller = "Universal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Greeting() on controller Solution1.Presentation.Controllers.UniversalController (Solution1.API).
+2025-02-25 23:50:00.642 +02:00 [INF] Executing OkObjectResult, writing value of type 'Microsoft.Extensions.Localization.LocalizedString'.
+2025-02-25 23:50:00.668 +02:00 [INF] Executed action Solution1.Presentation.Controllers.UniversalController.Greeting (Solution1.API) in 29.6498ms
+2025-02-25 23:50:00.668 +02:00 [INF] Executed endpoint 'Solution1.Presentation.Controllers.UniversalController.Greeting (Solution1.API)'
+2025-02-25 23:50:00.668 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7284/api/Universal/Greeting - 200 null application/json; charset=utf-8 79.5998ms
+2025-02-25 23:52:45.610 +02:00 [INF] Application is shutting down...
+2025-02-25 23:52:53.778 +02:00 [WRN] The path template 'odata/class/{key}' on the action 'GetClass' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'class'.
+2025-02-25 23:52:53.790 +02:00 [WRN] The path template 'odata/course/{key}' on the action 'GetCourse' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'course'.
+2025-02-25 23:52:53.790 +02:00 [WRN] The path template 'odata/student/{key}' on the action 'GetStudent' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'student'.
+2025-02-25 23:52:53.790 +02:00 [WRN] The path template 'odata/teacher/{key}' on the action 'GetTeacher' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'teacher'.
+2025-02-25 23:52:53.935 +02:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert
+2025-02-25 23:52:53.988 +02:00 [INF] Now listening on: https://localhost:7284
+2025-02-25 23:52:53.989 +02:00 [INF] Now listening on: http://localhost:5225
+2025-02-25 23:52:53.989 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-25 23:52:53.989 +02:00 [INF] Hosting environment: Development
+2025-02-25 23:52:53.989 +02:00 [INF] Content root path: C:\Users\alijadaloun\Desktop\BE Track\Lab5\project\Solution1\Solution1.API
+2025-02-25 23:53:04.950 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7284/api/Universal/Greeting - null 0
+2025-02-25 23:53:05.026 +02:00 [INF] CORS policy execution successful.
+2025-02-25 23:53:05.034 +02:00 [INF] Executing endpoint 'Solution1.Presentation.Controllers.UniversalController.Greeting (Solution1.API)'
+2025-02-25 23:53:05.058 +02:00 [INF] Route matched with {action = "Greeting", controller = "Universal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Greeting() on controller Solution1.Presentation.Controllers.UniversalController (Solution1.API).
+2025-02-25 23:53:05.084 +02:00 [INF] Executing OkObjectResult, writing value of type 'Microsoft.Extensions.Localization.LocalizedString'.
+2025-02-25 23:53:05.123 +02:00 [INF] Executed action Solution1.Presentation.Controllers.UniversalController.Greeting (Solution1.API) in 61.8974ms
+2025-02-25 23:53:05.130 +02:00 [INF] Executed endpoint 'Solution1.Presentation.Controllers.UniversalController.Greeting (Solution1.API)'
+2025-02-25 23:53:05.132 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7284/api/Universal/Greeting - 200 null application/json; charset=utf-8 183.7758ms
+2025-02-25 23:54:16.505 +02:00 [INF] Application is shutting down...
+2025-02-25 23:54:36.727 +02:00 [WRN] The path template 'odata/class/{key}' on the action 'GetClass' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'class'.
+2025-02-25 23:54:36.740 +02:00 [WRN] The path template 'odata/course/{key}' on the action 'GetCourse' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'course'.
+2025-02-25 23:54:36.741 +02:00 [WRN] The path template 'odata/student/{key}' on the action 'GetStudent' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'student'.
+2025-02-25 23:54:36.741 +02:00 [WRN] The path template 'odata/teacher/{key}' on the action 'GetTeacher' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'teacher'.
+2025-02-25 23:54:36.942 +02:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert
+2025-02-25 23:54:37.011 +02:00 [INF] Now listening on: https://localhost:7284
+2025-02-25 23:54:37.011 +02:00 [INF] Now listening on: http://localhost:5225
+2025-02-25 23:54:37.011 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-25 23:54:37.012 +02:00 [INF] Hosting environment: Development
+2025-02-25 23:54:37.012 +02:00 [INF] Content root path: C:\Users\alijadaloun\Desktop\BE Track\Lab5\project\Solution1\Solution1.API
+2025-02-25 23:54:38.802 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7284/api/Universal/Greeting - null 0
+2025-02-25 23:54:38.842 +02:00 [INF] CORS policy execution successful.
+2025-02-25 23:54:38.846 +02:00 [INF] Executing endpoint 'Solution1.Presentation.Controllers.UniversalController.Greeting (Solution1.API)'
+2025-02-25 23:54:38.856 +02:00 [INF] Route matched with {action = "Greeting", controller = "Universal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Greeting() on controller Solution1.Presentation.Controllers.UniversalController (Solution1.API).
+2025-02-25 23:54:38.868 +02:00 [INF] Executing OkObjectResult, writing value of type 'Microsoft.Extensions.Localization.LocalizedString'.
+2025-02-25 23:54:38.885 +02:00 [INF] Executed action Solution1.Presentation.Controllers.UniversalController.Greeting (Solution1.API) in 26.0208ms
+2025-02-25 23:54:38.893 +02:00 [INF] Executed endpoint 'Solution1.Presentation.Controllers.UniversalController.Greeting (Solution1.API)'
+2025-02-25 23:54:38.895 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7284/api/Universal/Greeting - 200 null application/json; charset=utf-8 94.6753ms
+2025-02-25 23:54:40.018 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7284/api/Universal/Greeting - null 0
+2025-02-25 23:54:40.028 +02:00 [INF] CORS policy execution successful.
+2025-02-25 23:54:40.028 +02:00 [INF] Executing endpoint 'Solution1.Presentation.Controllers.UniversalController.Greeting (Solution1.API)'
+2025-02-25 23:54:40.029 +02:00 [INF] Route matched with {action = "Greeting", controller = "Universal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Greeting() on controller Solution1.Presentation.Controllers.UniversalController (Solution1.API).
+2025-02-25 23:54:40.030 +02:00 [INF] Executing OkObjectResult, writing value of type 'Microsoft.Extensions.Localization.LocalizedString'.
+2025-02-25 23:54:40.032 +02:00 [INF] Executed action Solution1.Presentation.Controllers.UniversalController.Greeting (Solution1.API) in 2.6333ms
+2025-02-25 23:54:40.032 +02:00 [INF] Executed endpoint 'Solution1.Presentation.Controllers.UniversalController.Greeting (Solution1.API)'
+2025-02-25 23:54:40.033 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7284/api/Universal/Greeting - 200 null application/json; charset=utf-8 14.6946ms
+2025-02-25 23:54:40.720 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7284/api/Universal/Greeting - null 0
+2025-02-25 23:54:40.723 +02:00 [INF] CORS policy execution successful.
+2025-02-25 23:54:40.723 +02:00 [INF] Executing endpoint 'Solution1.Presentation.Controllers.UniversalController.Greeting (Solution1.API)'
+2025-02-25 23:54:40.723 +02:00 [INF] Route matched with {action = "Greeting", controller = "Universal"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Greeting() on controller Solution1.Presentation.Controllers.UniversalController (Solution1.API).
+2025-02-25 23:54:40.724 +02:00 [INF] Executing OkObjectResult, writing value of type 'Microsoft.Extensions.Localization.LocalizedString'.
+2025-02-25 23:54:40.724 +02:00 [INF] Executed action Solution1.Presentation.Controllers.UniversalController.Greeting (Solution1.API) in 1.0231ms
+2025-02-25 23:54:40.725 +02:00 [INF] Executed endpoint 'Solution1.Presentation.Controllers.UniversalController.Greeting (Solution1.API)'
+2025-02-25 23:54:40.725 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7284/api/Universal/Greeting - 200 null application/json; charset=utf-8 5.0085ms
+2025-02-25 23:55:33.566 +02:00 [INF] Application is shutting down...
+2025-02-25 23:59:37.282 +02:00 [WRN] The path template 'odata/class/{key}' on the action 'GetClass' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'class'.
+2025-02-25 23:59:37.299 +02:00 [WRN] The path template 'odata/course/{key}' on the action 'GetCourse' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'course'.
+2025-02-25 23:59:37.299 +02:00 [WRN] The path template 'odata/student/{key}' on the action 'GetStudent' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'student'.
+2025-02-25 23:59:37.300 +02:00 [WRN] The path template 'odata/teacher/{key}' on the action 'GetTeacher' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'teacher'.
+2025-02-25 23:59:37.514 +02:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert
+2025-02-25 23:59:37.560 +02:00 [INF] Now listening on: https://localhost:7284
+2025-02-25 23:59:37.561 +02:00 [INF] Now listening on: http://localhost:5225
+2025-02-25 23:59:37.561 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-25 23:59:37.561 +02:00 [INF] Hosting environment: Development
+2025-02-25 23:59:37.562 +02:00 [INF] Content root path: C:\Users\alijadaloun\Desktop\BE Track\Lab5\project\Solution1\Solution1.API
