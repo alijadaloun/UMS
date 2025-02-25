@@ -1097,3 +1097,14 @@ System.InvalidOperationException: Unable to resolve service for type 'Microsoft.
 2025-02-25 23:59:37.561 +02:00 [INF] Application started. Press Ctrl+C to shut down.
 2025-02-25 23:59:37.561 +02:00 [INF] Hosting environment: Development
 2025-02-25 23:59:37.562 +02:00 [INF] Content root path: C:\Users\alijadaloun\Desktop\BE Track\Lab5\project\Solution1\Solution1.API
+2025-02-26 00:01:23.336 +02:00 [INF] Application is shutting down...
+2025-02-26 00:01:29.641 +02:00 [WRN] The path template 'odata/class/{key}' on the action 'GetClass' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'class'.
+2025-02-26 00:01:29.655 +02:00 [WRN] The path template 'odata/course/{key}' on the action 'GetCourse' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'course'.
+2025-02-26 00:01:29.656 +02:00 [WRN] The path template 'odata/student/{key}' on the action 'GetStudent' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'student'.
+2025-02-26 00:01:29.657 +02:00 [WRN] The path template 'odata/teacher/{key}' on the action 'GetTeacher' in controller 'FilterOData' is not a valid OData path template. Resource not found for the segment 'teacher'.
+2025-02-26 00:01:29.921 +02:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert
+2025-02-26 00:01:29.987 +02:00 [INF] Now listening on: https://localhost:7284
+2025-02-26 00:01:29.988 +02:00 [INF] Now listening on: http://localhost:5225
+2025-02-26 00:01:29.989 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-26 00:01:29.990 +02:00 [INF] Hosting environment: Development
+2025-02-26 00:01:29.990 +02:00 [INF] Content root path: C:\Users\alijadaloun\Desktop\BE Track\Lab5\project\Solution1\Solution1.API
