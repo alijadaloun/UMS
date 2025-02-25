@@ -1,5 +1,8 @@
+using System.Globalization;
 using System.Reflection;
+using Hangfire;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Solution1.Persistence.Database;
@@ -12,10 +15,15 @@ using Microsoft.OData.ModelBuilder;
 using Microsoft.AspNetCore.OData;
 using Solution1.Domain.Entities;
 using Solution1.Infrastructure.Cache;
+using Serilog;
+using Solution1.Infrastructure;
+
+Log.Logger = new LoggerConfiguration().WriteTo.File($"logs/log{RollingInterval.Day}.txt").CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<UniversityDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("Host=localhost;Port=5432;Database=unidb;Username=ALIJAD;Password=alijad")));
+builder.Host.UseSerilog();
 
 builder.Services.AddControllers();
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(AddStudentCommand).Assembly));
@@ -26,9 +34,11 @@ builder.Services.AddScoped<CourseRepository>();
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddSingleton<IConnectionMultiplexer>(
     ConnectionMultiplexer.Connect("localhost:6379"));
+builder.Services.AddScoped<HangfireService>();
 builder.Services.AddScoped<RedisCacheService>();
 builder.Services.AddMemoryCache();
 builder.Services.AddScoped<InMemoryCacheService>();
+
 
 builder.Services.AddApiVersioning(options =>
 {
@@ -55,6 +65,19 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader();
     });
 });
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+var supportedCultures = new[]
+{
+    new CultureInfo("en"), new CultureInfo("de")   
+};
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    options.DefaultRequestCulture = new RequestCulture("de");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+});
+
 var modelBuilder = new ODataConventionModelBuilder();
 modelBuilder.EntityType<Class>();
 modelBuilder.EntityType<Course>();
@@ -76,6 +99,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseRequestLocalization();
 
 app.UseCors("AllowAll");
 

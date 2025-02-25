@@ -31,7 +31,7 @@ public class TeacherRepository
 
     public async Task<Teacher> Add(Teacher teacher)
     {
-        _universityDbContext.Teachers.Add(teacher);
+        await _universityDbContext.Teachers.AddAsync(teacher);
         return teacher;
         
     }
@@ -44,6 +44,31 @@ public class TeacherRepository
         s.CanApplyToFrance = s.Grade > 15?true:false;
         await _universityDbContext.SaveChangesAsync();
     }
+    public string GradeBackground(int StudentId,int grade)//out of 20
+    {
+        var s =   _universityDbContext.Students.Find(StudentId);
+        if(s==null) throw new ArgumentNullException("Student not found");
+        s.Grade = (s.Grade + 20)/2;
+        s.CanApplyToFrance = s.Grade > 15?true:false; 
+        var email = SendEmail(StudentId);
+        return email;
+    }
+
+    private string SendEmail(int studentId)
+    {
+        var s =  _universityDbContext.Students.Find(studentId);
+        if(s==null) throw new ArgumentNullException("Student not found");
+        string email = s.Email;//Email will be send in this for student from the hangfire method daily
+        return email;
+
+    }
+
+    public string Notify(int studentId, string deadline)
+    {
+        var s = SendEmail(studentId);
+        return s;
+        
+    }
     public async Task<Teacher> Delete(int id)
     {
         var teacher = await _universityDbContext.Teachers.FindAsync(id);
@@ -54,6 +79,7 @@ public class TeacherRepository
     {
         await _universityDbContext.SaveChangesAsync();
     }
+    
 
     
     
