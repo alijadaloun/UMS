@@ -13,6 +13,7 @@ public class UniversalController: ControllerBase
     public UniversalController(IStringLocalizer<Universal> localizer)
     {
         _localizer = localizer;
+        
     }
 
     [HttpPost("Greeting")]
