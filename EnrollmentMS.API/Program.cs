@@ -1,3 +1,4 @@
+using EnrollmentMS.API.Middleware;
 using EnrollmentMS.Infrastructure;
 using EnrollmentMS.Persistence;
 using MassTransit;
@@ -7,7 +8,8 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<EnrollmentDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("EnrollmentDatabase")));
-
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<TenantMiddleware>();
 builder.Services.AddScoped< EnrollmentRepository>();
 
 builder.Services.AddSingleton<IRabbitMQPersistentConnection>(sp =>
@@ -44,11 +46,13 @@ builder.Services.AddOpenApi();
 
 
 var app = builder.Build();
-
+app.UseMiddleware<TenantMiddleware>();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
+    
 }
 
 app.UseHttpsRedirection();
