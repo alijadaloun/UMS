@@ -34,9 +34,6 @@ public class UniversityDbContext: DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=unidb;Username=ALIJAD;Password=alijad");
 
-//dotnet tool install --global dotnet-ef
-//    dotnet tool update --global dotnet-ef
-
     
     
     

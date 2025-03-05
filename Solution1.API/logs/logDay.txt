@@ -1388,3 +1388,4 @@ System.InvalidOperationException: Unable to resolve service for type 'Microsoft.
 2025-02-26 00:21:32.828 +02:00 [INF] Executed action Solution1.Presentation.Controllers.UniversalController.Greeting (Solution1.API) in 14.4767ms
 2025-02-26 00:21:32.828 +02:00 [INF] Executed endpoint 'Solution1.Presentation.Controllers.UniversalController.Greeting (Solution1.API)'
 2025-02-26 00:21:32.829 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7284/api/universal/greeting?message=asda - 200 null application/json; charset=utf-8 21.9309ms
+2025-02-26 00:32:24.734 +02:00 [INF] Application is shutting down...

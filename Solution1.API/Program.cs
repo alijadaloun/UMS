@@ -24,7 +24,7 @@ Log.Logger = new LoggerConfiguration().WriteTo.File($"logs/log{RollingInterval.D
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<UniversityDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("Host=localhost;Port=5432;Database=unidb;Username=ALIJAD;Password=alijad")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("Nqgsql")));
 builder.Host.UseSerilog();
 
 builder.Services.AddControllers();
@@ -108,6 +108,7 @@ app.MapGet("/", (IStringLocalizer<Universal> localizer) =>
     localizer["HelloWorld"]); 
 
 app.UseCors("AllowAll");
+app.UseAuthentication();
 
 app.UseAuthorization();
 
