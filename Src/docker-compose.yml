@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  university-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.UniversityMS 
+    container_name: university-service
+    ports:
+      - "5001:80"
+    environment:
+      - ConnectionStrings__UniDB=Host=localhost;Port=5432;Database=unidb;Username=ALIJAD;Password=alijad
+    depends_on:
+      - university-db
+
+  enrollment-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.EnrollmentMS  
+    container_name: enrollment-service
+    ports:
+      - "5002:80"   
+    environment:
+      - ConnectionStrings__EnrollmentDb=Host=localhost;Port=5433;Database=EnrollmentDB;Username=ALIJAD;Password=alijad
+    depends_on:
+      - enrollment-db
+
+  university-db:
+    image: postgres:13
+    container_name: university-db
+    environment:
+      POSTGRES_USER: ALIJAD
+      POSTGRES_PASSWORD: alijad
+      POSTGRES_DB: unidb
+    volumes:
+      - university-data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  enrollment-db:
+    image: postgres:13
+    container_name: enrollment-db
+    environment:
+      POSTGRES_USER: ALIJAD
+      POSTGRES_PASSWORD: alijad
+      POSTGRES_DB: EnrollmentDB
+    volumes:
+      - enrollment-data:/var/lib/postgresql/data
+    networks:
+      - app-network
+  redis-cache:
+    image: redis:6
+    ports:
+      - '6379:6379'
+    
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  enrollment-data:
+  university-data:

@@ -1,15 +1,11 @@
-using RabbitMQ.Client;
-using System;
-using System.Text;
-using EnrollmentMS.Infrastructure;
 using EnrollmentMS.Persistence;
+
+namespace EnrollmentMS.Infrastructure;
 
 public class EventBusRabbitMQ : IEventBus, IDisposable
 {
     private readonly IRabbitMQPersistentConnection _persistentConnection;
     private readonly EventBusSubscriptionManager _subsManager;
-    private readonly string _queueName = "event_bus_queue";
-    private const string BROKER_NAME = "microservice_event_bus";
 
     public EventBusRabbitMQ(IRabbitMQPersistentConnection persistentConnection, EventBusSubscriptionManager subsManager)
     {
