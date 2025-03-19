@@ -18,9 +18,9 @@ using Solution1.Domain.Entities;
 using Solution1.Infrastructure.Cache;
 using Serilog;
 using Solution1.Infrastructure;
-using Solution1.Presentation.Resources;
+using Solution1.Presentation.Controllers;
 
-Log.Logger = new LoggerConfiguration().WriteTo.File($"logs/log{RollingInterval.Day}.txt").CreateLogger();
+// Log.Logger = new LoggerConfiguration().WriteTo.File($"logs/log{RollingInterval.Day}.txt").CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<UniversityDbContext>(options =>
@@ -40,7 +40,6 @@ builder.Services.AddScoped<HangfireService>();
 builder.Services.AddScoped<RedisCacheService>();
 builder.Services.AddMemoryCache();
 builder.Services.AddScoped<InMemoryCacheService>();
-builder.Services.AddScoped<Universal>();
 
 
 builder.Services.AddApiVersioning(options =>
@@ -104,7 +103,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseRequestLocalization();
-app.MapGet("/", (IStringLocalizer<Universal> localizer) =>
+app.MapGet("/", (IStringLocalizer<UniversalController> localizer) =>
     localizer["HelloWorld"]); 
 
 app.UseCors("AllowAll");

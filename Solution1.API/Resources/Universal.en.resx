@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <data name="HelloWorld">
-    <value>Hello, World!</value>
-  </data>
   <data name="WelcomeMessage">
     <value>Welcome to our application!</value>
   </data>

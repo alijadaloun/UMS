@@ -6,10 +6,10 @@ using RabbitMQ.Client;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+// builder.Services.AddScoped<TenantMiddleware>();
 builder.Services.AddDbContext<EnrollmentDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("EnrollmentDatabase")));
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddScoped<TenantMiddleware>();
 builder.Services.AddScoped< EnrollmentRepository>();
 
 builder.Services.AddSingleton<IRabbitMQPersistentConnection>(sp =>
@@ -23,6 +23,8 @@ builder.Services.AddSingleton<IRabbitMQPersistentConnection>(sp =>
 });
 
 builder.Services.AddSingleton<IEventBus, EventBusRabbitMQ>();
+
+builder.Services.AddSingleton<EventBusSubscriptionManager>();
 
 builder.Services.AddMassTransit(config =>
 {
@@ -41,13 +43,11 @@ builder.Services.AddMassTransit(config =>
 });
 
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
 
 var app = builder.Build();
-app.UseMiddleware<TenantMiddleware>();
-// Configure the HTTP request pipeline.
+// app.UseMiddleware<TenantMiddleware>();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
