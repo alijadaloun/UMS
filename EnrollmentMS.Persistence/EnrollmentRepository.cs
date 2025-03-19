@@ -1,5 +1,4 @@
 using EnrollmentMS.Domain;
-using EnrollmentMS.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Shared;
 
@@ -48,7 +47,7 @@ public class EnrollmentRepository
     public async Task EnrollAsync(int studentId, int courseId)
     {
         if( !await _context.Enrollments.AnyAsync(e => e.StudentId == studentId || e.CourseId == courseId))throw new Exception("Student or Course not found");
-        _eventBus.Subscribe<StudentCreatedEvent, EnrollStudentEventHandler >();
+        _eventBus.Subscribe<StudentCreatedEvent,IIntegrationEventHandler<StudentCreatedEvent>>();
         //here we are registring the student into the message queue in rabbitMQ to execute the enroll function from the microservice
         
         

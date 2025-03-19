@@ -1,11 +1,6 @@
 using RabbitMQ.Client;
-using RabbitMQ.Client.Events;
-using System;
-using System.IO;
-using System.Net.Sockets;
-using System.Threading;
-using EnrollmentMS.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
+
+namespace EnrollmentMS.Infrastructure;
 
 public class DefaultRabbitMQPersistentConnection : IRabbitMQPersistentConnection
 {
@@ -14,6 +9,12 @@ public class DefaultRabbitMQPersistentConnection : IRabbitMQPersistentConnection
     private readonly object _lock = new();
     private bool _disposed;
 
+    public DefaultRabbitMQPersistentConnection(IConnectionFactory connectionFactory, IConnection connection)
+    {
+        _connectionFactory = connectionFactory ?? throw new ArgumentNullException(nameof(connectionFactory));
+        _connection = connection ?? throw new ArgumentNullException(nameof(connection));
+    }
+
     public DefaultRabbitMQPersistentConnection(IConnectionFactory connectionFactory)
     {
         _connectionFactory = connectionFactory ?? throw new ArgumentNullException(nameof(connectionFactory));
@@ -21,30 +22,29 @@ public class DefaultRabbitMQPersistentConnection : IRabbitMQPersistentConnection
 
     public bool IsConnected => _connection != null && _connection.IsOpen && !_disposed;
 
-    public bool TryConnect()
+    public async  Task<bool> TryConnect()
     {
-        lock (_lock)
-        {
-            try
-            {
-                _connection = _connectionFactory.CreateConnection();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"RabbitMQ connection failed: {ex.Message}");
-                return false;
-            }
 
-            if (IsConnected)
-            {
-                Console.WriteLine($"Connected to RabbitMQ on {_connection.Endpoint.HostName}");
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+        try
+        {
+            _connection = await _connectionFactory.CreateConnectionAsync();
         }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"RabbitMQ connection failed: {ex.Message}");
+            return false;
+        }
+
+        if (IsConnected)
+        {
+            Console.WriteLine($"Connected to RabbitMQ on {_connection.Endpoint.HostName}");
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
     }
 
     public void CreateModel()

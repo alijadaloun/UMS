@@ -29,7 +29,7 @@ public class EventBusRabbitMQ : IEventBus, IDisposable
                 _persistentConnection.TryConnect();
             }
 
-            var channel = _persistentConnection.CreateModel();
+            _persistentConnection.CreateModel();
             
             
             
@@ -39,4 +39,8 @@ public class EventBusRabbitMQ : IEventBus, IDisposable
     }
 
 
+    public void Dispose()
+    {
+        
+    }
 }

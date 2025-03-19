@@ -32,9 +32,12 @@ public class EnrollmentService: IEnrollmentService
         return _enrollmentRepository.GetEnrollmentsAsync();
     }
 
+
     public async Task Enroll(Enrollment enrollment)
     {
-        await _enrollmentRepository.EnrollAsync(enrollment);
+        var studentid = enrollment.StudentId;
+        var courseId = enrollment.CourseId;
+        await _enrollmentRepository.EnrollAsync(studentid, courseId);
         
     }
 
