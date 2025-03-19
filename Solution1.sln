@@ -5,6 +5,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{3A42F069-514
 		Src\Dockerfile.EnrollmentMS = Src\Dockerfile.EnrollmentMS
 		Src\Dockerfile.UniversityMS = Src\Dockerfile.UniversityMS
 		Src\docker-compose.yml = Src\docker-compose.yml
+		Src\UniversityMS.dockerfile = Src\UniversityMS.dockerfile
+		Src\EnrollmentMS.dockerfile = Src\EnrollmentMS.dockerfile
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{976C41D2-718F-4267-83D8-438459121401}"

@@ -1,0 +1,23 @@
+# This is a generated file. Not intended for manual editing.
+version: "3.8"
+services:
+  university-service:
+    build:
+      context: "C:\\Users\\alijadaloun\\Desktop\\BE Track\\Lab5\\project\\Solution1\\\
+        Src"
+      dockerfile: "UniversityMS.dockerfile"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net9.0/Solution1.API.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_STATICWEBASSETS: "/app/bin/Debug/net9.0/Solution1.API.staticwebassets.runtime.CT.json"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "solution1.api:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\alijadaloun\\Desktop\\BE Track\\Lab5\\project\\Solution1\\Solution1.API:/app:rw"
+    - "C:\\Users\\alijadaloun\\Desktop\\BE Track\\Lab5\\project\\Solution1:/src:rw"
+    - "C:\\Users\\alijadaloun\\.nuget\\packages:/root/.nuget/packages"
+    working_dir: "/app"

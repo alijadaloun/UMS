@@ -35,7 +35,7 @@ builder.Services.AddScoped<ClassRepository>();
 builder.Services.AddScoped<CourseRepository>();
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddSingleton<IConnectionMultiplexer>(
-    ConnectionMultiplexer.Connect("localhost:6379"));
+    ConnectionMultiplexer.Connect("localhost:6379,abortConnect=false"));
 builder.Services.AddScoped<HangfireService>();
 builder.Services.AddScoped<RedisCacheService>();
 builder.Services.AddMemoryCache();
