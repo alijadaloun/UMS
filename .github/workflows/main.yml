@@ -1,0 +1,20 @@
+name: learn-github-actions
+on:
+  push:
+    branches:
+      - DockerizedApp
+
+jobs:
+ check-bats-version:
+   runs-on: ubuntu-latest
+
+   steps:
+
+     — uses: actions/checkout@v4
+     
+     - name: Docker
+       uses: docker/setup-buildx-action@v1
+      - name: BUid container
+        run: docker-compose up -d 
+        
+      
